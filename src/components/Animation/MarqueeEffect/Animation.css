@@ -1,0 +1,25 @@
+/* Marquee Animation */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-1 * var(--content-width))); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(calc(-1 * var(--content-width))); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-left {
+  animation: marquee-left var(--duration) linear infinite;
+  will-change: transform;
+}
+
+.marquee-right {
+  animation: marquee-right var(--duration) linear infinite;
+  will-change: transform;
+}
+
+/* Optional: Add smooth transition when resizing */
+.marquee-left, .marquee-right {
+  transition: 100ms linear;
+}
