@@ -7,6 +7,7 @@ import { EventInput, DateSelectArg, EventClickArg } from "@fullcalendar/core";
 import { Modal } from "../components/ui/modal";
 import { useModal } from "../hooks/useModal";
 import PageMeta from "../components/common/PageMeta";
+import { EventContentArg } from "@fullcalendar/core";
 
 interface CalendarEvent extends EventInput {
   extendedProps: {
@@ -268,7 +269,7 @@ const Calendar: React.FC = () => {
   );
 };
 
-const renderEventContent = (eventInfo: any) => {
+const renderEventContent = (eventInfo: EventContentArg) => {
   const colorClass = `fc-bg-${eventInfo.event.extendedProps.calendar.toLowerCase()}`;
   return (
     <div
@@ -280,5 +281,4 @@ const renderEventContent = (eventInfo: any) => {
     </div>
   );
 };
-
 export default Calendar;

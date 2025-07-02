@@ -6,6 +6,16 @@ import { worldMill } from "@react-jvectormap/world";
 interface CountryMapProps {
   mapColor?: string;
 }
+// Define marker style type
+interface MarkerStyle {
+  initial: {
+    fill: string;
+    stroke?: string;
+    strokeWidth?: number;
+    strokeOpacity?: number;
+    r?: number; // SVG circle radius
+  };
+}
 
 const CountryMap: React.FC<CountryMapProps> = ({ mapColor }) => {
   return (
@@ -15,9 +25,12 @@ const CountryMap: React.FC<CountryMapProps> = ({ mapColor }) => {
       markerStyle={{
         initial: {
           fill: "#465FFF",
-          r: 4, // Custom radius for markers
-        } as any, // Type assertion to bypass strict CSS property checks
-      }}
+          r: 4, // ✅ Now allowed due to custom type
+          stroke: "none",
+          strokeWidth: 0,
+          strokeOpacity: 0,
+        },
+      } as MarkerStyle}
       markersSelectable={true}
       markers={[
         {
