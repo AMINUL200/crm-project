@@ -17,7 +17,6 @@ import FormElements from "./pages/Forms/FormElements";
 import Blank from "./pages/Blank";
 import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
-import Home from "./pages/Dashboard/Home";
 import { useSelector } from "react-redux";
 import { RootState } from "./app/store";
 import PublicRoute from "./components/auth/PublicRoute";
@@ -27,6 +26,11 @@ import AddUser from "./pages/User/AddUser";
 import AuthContainer from "./pages/AuthPages/AuthContainer";
 import ForgotPassword from "./components/auth/ForgotPassword ";
 import ResetPassword from "./components/auth/ResetPassword";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Sales from "./pages/Sales/Sales";
+import Analytics from "./pages/Analytics/Analytics";
+import ProductsPage from "./pages/products/ProductsPage";
+import TasksPage from "./pages/Tasks/TasksPage";
 
 
 
@@ -78,11 +82,17 @@ export default function App() {
               <AppLayout />
             </ProtectedRoute>}
           >
-            <Route index path="/dashboard" element={<Home />} />
+            {/* <Route index path="/dashboard" element={<Home />} /> */}
+            <Route index path="/dashboard" element={<Dashboard />} />
 
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/sales" element={<Sales />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/tasks" element={<TasksPage />} />
+
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/blank" element={<Blank />} />
             <Route path="/add-user" element={<AddUser />} />
